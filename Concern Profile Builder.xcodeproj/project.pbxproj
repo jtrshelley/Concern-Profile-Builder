@@ -23,6 +23,10 @@
 		84D1316D18401F7D00D2AB1C /* EcoValSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1316C18401F7D00D2AB1C /* EcoValSecondViewController.m */; };
 		84D1316F18401F7D00D2AB1C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1316E18401F7D00D2AB1C /* second.png */; };
 		84D1317118401F7D00D2AB1C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1317018401F7D00D2AB1C /* second@2x.png */; };
+		84D1317D1840203B00D2AB1C /* simulationOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D131771840203B00D2AB1C /* simulationOutcome.m */; };
+		84D1317E1840203B00D2AB1C /* PieChartHandles.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1317A1840203B00D2AB1C /* PieChartHandles.m */; };
+		84D1317F1840203B00D2AB1C /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1317C1840203B00D2AB1C /* XYPieChart.m */; };
+		84D13181184021AC00D2AB1C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D13180184021AC00D2AB1C /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,13 @@
 		84D1316C18401F7D00D2AB1C /* EcoValSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EcoValSecondViewController.m; sourceTree = "<group>"; };
 		84D1316E18401F7D00D2AB1C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		84D1317018401F7D00D2AB1C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		84D131771840203B00D2AB1C /* simulationOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = simulationOutcome.m; sourceTree = "<group>"; };
+		84D131781840203B00D2AB1C /* simulationOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simulationOutcome.h; sourceTree = "<group>"; };
+		84D131791840203B00D2AB1C /* PieChartHandles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartHandles.h; sourceTree = "<group>"; };
+		84D1317A1840203B00D2AB1C /* PieChartHandles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartHandles.m; sourceTree = "<group>"; };
+		84D1317B1840203B00D2AB1C /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		84D1317C1840203B00D2AB1C /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
+		84D13180184021AC00D2AB1C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D13181184021AC00D2AB1C /* QuartzCore.framework in Frameworks */,
 				84D1314A18401F7D00D2AB1C /* UIKit.framework in Frameworks */,
 				84D1314C18401F7D00D2AB1C /* Foundation.framework in Frameworks */,
 				84D1314E18401F7D00D2AB1C /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +96,7 @@
 		84D1314818401F7D00D2AB1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D13180184021AC00D2AB1C /* QuartzCore.framework */,
 				84D1314918401F7D00D2AB1C /* UIKit.framework */,
 				84D1314B18401F7D00D2AB1C /* Foundation.framework */,
 				84D1314D18401F7D00D2AB1C /* CoreGraphics.framework */,
@@ -98,6 +111,12 @@
 				84D1315918401F7D00D2AB1C /* EcoValAppDelegate.m */,
 				84D1316118401F7D00D2AB1C /* MainStoryboard.storyboard */,
 				84D1316418401F7D00D2AB1C /* EcoValFirstViewController.h */,
+				84D131771840203B00D2AB1C /* simulationOutcome.m */,
+				84D131781840203B00D2AB1C /* simulationOutcome.h */,
+				84D131791840203B00D2AB1C /* PieChartHandles.h */,
+				84D1317A1840203B00D2AB1C /* PieChartHandles.m */,
+				84D1317B1840203B00D2AB1C /* XYPieChart.h */,
+				84D1317C1840203B00D2AB1C /* XYPieChart.m */,
 				84D1316518401F7D00D2AB1C /* EcoValFirstViewController.m */,
 				84D1316718401F7D00D2AB1C /* first.png */,
 				84D1316918401F7D00D2AB1C /* first@2x.png */,
@@ -199,6 +218,9 @@
 				84D1315A18401F7D00D2AB1C /* EcoValAppDelegate.m in Sources */,
 				84D1316618401F7D00D2AB1C /* EcoValFirstViewController.m in Sources */,
 				84D1316D18401F7D00D2AB1C /* EcoValSecondViewController.m in Sources */,
+				84D1317D1840203B00D2AB1C /* simulationOutcome.m in Sources */,
+				84D1317E1840203B00D2AB1C /* PieChartHandles.m in Sources */,
+				84D1317F1840203B00D2AB1C /* XYPieChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

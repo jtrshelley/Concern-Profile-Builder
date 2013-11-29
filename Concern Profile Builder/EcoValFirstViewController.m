@@ -20,6 +20,8 @@
 @synthesize concernProfiles = _concernProfiles;
 @synthesize outcome = _outcome;
 
+NSArray * normalizedVariableNames;
+NSMutableArray * graphicRepresentations;
 
 - (void)didReceiveMemoryWarning
 {
@@ -32,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    graphicRepresentations = [[NSMutableArray alloc] init];
     //    PieChartHandles *test = [[PieChartHandles alloc] init];
     //    [test setCenter:CGPointMake(self.pieChartLeft.pieCenter.x + 10, self.pieChartLeft.pieCenter.y+self.pieChartLeft.pieRadius +5)];
     //    [self.pieChartLeft addSubview:test];
@@ -40,7 +42,7 @@
     self.numOfSlices = 14;
     self.slices = [NSMutableArray arrayWithCapacity:18];
     self.textFields = [NSArray arrayWithObjects:_publicInstall, _privateInstall, _publicMaintenance, _privateMaintenance, _wasteWaterTreatment, _basementFlooding, _runOff, _waterInSewers, _deepestPuddle, _waterStored, _amountInfiltrated, _timeFlooded, _minorFloodTime, _majorFloodTime, nil];
-    
+    normalizedVariableNames = [NSArray arrayWithObjects: @"publicInstallN",@"privateInstallN", @"publicMaintainN",@"privateMaintainN", @"publicDamageN", @"privateDamageN",@"runOffN", @"waterInSewersN", @"waterInRoofsN", @"waterInAllGIN", @"waterInSwalesN",@"timeToDryN" , @"timeOfFloodN",  @"timeOfLargeFloodN",  nil];
     for(int i = 0; i < _numOfSlices; i ++)
     {
         NSNumber *one = [NSNumber numberWithInt: 1 ];
@@ -58,13 +60,14 @@
     [self.pieChartLeft setUserInteractionEnabled:NO];
     [self.pieChartLeft setLabelShadowColor:[UIColor blackColor]];
     
+    
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:24/255.0 green:75/255.0 blue:0/255.0 alpha:1],
                        [UIColor colorWithRed:50/255.0 green:100/255.0 blue:25/255.0 alpha:1],
                        [UIColor colorWithRed:75/255.0 green:125/255.0 blue:25/255.0 alpha:1],
                        [UIColor colorWithRed:100/255.0 green:150/255.0 blue:25/255.0 alpha:1],
                        [UIColor colorWithRed:50/255.0 green:150/255.0 blue:25/255.0 alpha:1],
-    /*last green value*/   [UIColor colorWithRed:25/255.0 green:200/255.0 blue:50/255.0 alpha:1],
+                       /*last green value*/   [UIColor colorWithRed:25/255.0 green:200/255.0 blue:50/255.0 alpha:1],
                        [UIColor colorWithRed:25/255.0 green:50/255.0 blue:100/255.0 alpha:1],
                        [UIColor colorWithRed:25/255.0 green:50/255.0 blue:150/255.0 alpha:1],
                        [UIColor colorWithRed:30/255.0 green:125/255.0 blue:200/255.0 alpha:1],
@@ -188,6 +191,8 @@
         [_slices addObject:one];
     }
     [self.pieChartLeft reloadData];
+    [self updateDrawnScoreBars];
+    [[self view] setNeedsDisplay];
 }
 - (IBAction)resetPressed:(id)sender {
     [_slices removeAllObjects];
@@ -215,8 +220,41 @@
     NSURL *server = [NSURL URLWithString:@"http://polarbear.evl.uic.edu/~evl/ecocollage/"];
     NSString *stringText = [NSString stringWithFormat:@"index.php?studyID=%@", _studyID.text];
     NSString *content = [NSString stringWithContentsOfURL:[NSURL URLWithString: stringText relativeToURL: server] encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"stringText,%@ content: %@", stringText, content);
+    //NSLog(@"stringText,%@ content: %@", stringText, content);
     _outcome = [[simulationOutcome alloc] initWith: content view: self.view];
+    [self updateDrawnScoreBars];
+}
+- (void) updateDrawnScoreBars{
+    if(_outcome != nil){
+        [graphicRepresentations removeAllObjects];
+        float totalSliceValues = 0;
+        for(int i = 0; i < _numOfSlices; i++){
+            totalSliceValues += [[self.slices objectAtIndex:i] floatValue];
+        }
+        NSLog(@"%f", totalSliceValues);
+        for(int j = 0 ; j < _outcome.simOutcome.count; j++){
+            float prevY = 545;
+            UILabel *possibleScores = [[UILabel alloc] initWithFrame:CGRectMake(160 +j*200, prevY-125, 50, 125)];
+            possibleScores.backgroundColor = [UIColor grayColor];
+            NSMutableDictionary *outComeSet= [[_outcome simOutcome] objectAtIndex:j];
+            [self.view addSubview:possibleScores];
+            [graphicRepresentations addObject:possibleScores];
+            if ( j * 200 > 1000) break;
+            for(int i = 0; i < _numOfSlices; i++){
+                if([self.slices objectAtIndex: i] > 0){
+                    float score = [[outComeSet objectForKey: [normalizedVariableNames objectAtIndex: i]] floatValue];
+                    
+                    float height = score*125*[[self.slices objectAtIndex:i] floatValue] / totalSliceValues;
+                    UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(160 + j*200, prevY-height, 50, height) ];
+                    newLabel.backgroundColor = [_sliceColors objectAtIndex:i];
+                    [self.view addSubview:newLabel];
+                    [graphicRepresentations addObject:newLabel];
+                    prevY -= height;
+                    NSLog(@"%@", newLabel);
+                }
+            }
+        }
+    }
     
 }
 @end

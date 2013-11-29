@@ -153,7 +153,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         self.labelFont = [UIFont boldSystemFontOfSize:5];
         _labelColor = [UIColor blackColor];
         _labelRadius = _pieRadius/2;
-        NSLog(@"Label Radius %f", self.labelRadius);
+        //NSLog(@"Label Radius %f", self.labelRadius);
         _selectedSliceOffsetRadius = MAX(10, _pieRadius/10);
         
         _showLabel = YES;
@@ -191,12 +191,12 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         _selectedSliceStroke = 3.0;
         
         CGRect bounds = [[self layer] bounds];
-        self.pieRadius = MIN(bounds.size.width/2, bounds.size.height/2) - 10;
+        self.pieRadius = 150;
         self.pieCenter = CGPointMake(bounds.size.width/2, bounds.size.height/2);
         self.labelFont = [UIFont systemFontOfSize:5];
         _labelColor = [UIColor blackColor];
         _labelRadius = _pieRadius/2 - 25;
-        NSLog(@"Label Radius (init with Coder) %f", self.labelRadius);
+        //NSLog(@"Label Radius (init with Coder) %f", self.labelRadius);
         _selectedSliceOffsetRadius = MAX(10, _pieRadius/10);
         
         _showLabel = YES;
@@ -279,7 +279,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         double sum = 0.0;
         double values[sliceCount];
         for (int index = 0; index < sliceCount; index++) {
-            NSLog(@"pie chart index: %d has value: %f", index, [_dataSource pieChart:self valueForSliceAtIndex:index] );
+            //NSLog(@"pie chart index: %d has value: %f", index, [_dataSource pieChart:self valueForSliceAtIndex:index] );
             values[index] = [_dataSource pieChart:self valueForSliceAtIndex:index];
             sum += values[index];
         }
@@ -372,7 +372,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
                 }
 
             }
-            for(int i =0 ; i <sliceCount; i++) NSLog(@"%f", angles[i]);
+            //for(int i =0 ; i <sliceCount; i++) NSLog(@"%f", angles[i]);
             layer.value = values[index];
             layer.percentage = (sum)?layer.value/sum:0;
             UIColor *color = nil;

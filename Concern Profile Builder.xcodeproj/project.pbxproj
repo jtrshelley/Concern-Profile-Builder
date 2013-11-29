@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8448E180184958C6001F7D80 /* greenRoof.png in Resources */ = {isa = PBXBuildFile; fileRef = 8448E17C184958C6001F7D80 /* greenRoof.png */; };
+		8448E181184958C6001F7D80 /* permeablePaver.png in Resources */ = {isa = PBXBuildFile; fileRef = 8448E17D184958C6001F7D80 /* permeablePaver.png */; };
+		8448E182184958C6001F7D80 /* rainbarrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 8448E17E184958C6001F7D80 /* rainbarrel.png */; };
+		8448E183184958C6001F7D80 /* swale.png in Resources */ = {isa = PBXBuildFile; fileRef = 8448E17F184958C6001F7D80 /* swale.png */; };
 		84D1314A18401F7D00D2AB1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D1314918401F7D00D2AB1C /* UIKit.framework */; };
 		84D1314C18401F7D00D2AB1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D1314B18401F7D00D2AB1C /* Foundation.framework */; };
 		84D1314E18401F7D00D2AB1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D1314D18401F7D00D2AB1C /* CoreGraphics.framework */; };
@@ -30,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8448E17C184958C6001F7D80 /* greenRoof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenRoof.png; sourceTree = "<group>"; };
+		8448E17D184958C6001F7D80 /* permeablePaver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permeablePaver.png; sourceTree = "<group>"; };
+		8448E17E184958C6001F7D80 /* rainbarrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbarrel.png; sourceTree = "<group>"; };
+		8448E17F184958C6001F7D80 /* swale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swale.png; sourceTree = "<group>"; };
 		84D1314618401F7D00D2AB1C /* Concern Profile Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concern Profile Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1314918401F7D00D2AB1C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84D1314B18401F7D00D2AB1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +118,10 @@
 				84D1315818401F7D00D2AB1C /* EcoValAppDelegate.h */,
 				84D1315918401F7D00D2AB1C /* EcoValAppDelegate.m */,
 				84D1316118401F7D00D2AB1C /* MainStoryboard.storyboard */,
+				8448E17C184958C6001F7D80 /* greenRoof.png */,
+				8448E17D184958C6001F7D80 /* permeablePaver.png */,
+				8448E17E184958C6001F7D80 /* rainbarrel.png */,
+				8448E17F184958C6001F7D80 /* swale.png */,
 				84D1316418401F7D00D2AB1C /* EcoValFirstViewController.h */,
 				84D131771840203B00D2AB1C /* simulationOutcome.m */,
 				84D131781840203B00D2AB1C /* simulationOutcome.h */,
@@ -204,6 +216,10 @@
 				84D1316A18401F7D00D2AB1C /* first@2x.png in Resources */,
 				84D1316F18401F7D00D2AB1C /* second.png in Resources */,
 				84D1317118401F7D00D2AB1C /* second@2x.png in Resources */,
+				8448E180184958C6001F7D80 /* greenRoof.png in Resources */,
+				8448E181184958C6001F7D80 /* permeablePaver.png in Resources */,
+				8448E182184958C6001F7D80 /* rainbarrel.png in Resources */,
+				8448E183184958C6001F7D80 /* swale.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +361,7 @@
 				84D1317618401F7D00D2AB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

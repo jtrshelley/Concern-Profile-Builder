@@ -144,6 +144,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="updatePressed:" destination="2" eventType="touchUpInside" id="UKs-rb-wh1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjL-vo-BHr">
                                         <constraints>
@@ -157,6 +160,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetPressed:" destination="2" eventType="touchUpInside" id="udh-vC-R2H"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time Until Minor Flood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94W-8n-lCp">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -192,6 +198,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveConcernProfile:" destination="2" eventType="touchUpInside" id="NcV-qt-l1L"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-UL-3um">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -202,6 +211,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loadScoreData:" destination="2" eventType="touchUpInside" id="fDc-S5-jni"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scores So Far" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-EI-CdI">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -343,8 +355,29 @@
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Concern Profile and Score" image="first" id="7"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="amountInfiltrated" destination="8Fu-6b-elK" id="RFm-q7-kf5"/>
+                        <outlet property="basementFlooding" destination="wOx-Fv-I34" id="5S8-OP-XaI"/>
+                        <outlet property="deepestPuddle" destination="IDb-36-jKB" id="x6b-Kc-hjG"/>
+                        <outlet property="majorFloodTime" destination="b6X-fm-J97" id="I3L-Ut-c5U"/>
+                        <outlet property="minorFloodTime" destination="iJL-xx-Nnz" id="GME-Y0-HpJ"/>
+                        <outlet property="pieChartLeft" destination="7Of-iX-cp4" id="9yn-OM-WcT"/>
+                        <outlet property="privateInstall" destination="yFF-1F-GhN" id="cJ1-YZ-qbk"/>
+                        <outlet property="privateMaintenance" destination="Nls-8Z-xCo" id="5l4-7Z-Tbj"/>
+                        <outlet property="publicInstall" destination="yoC-EX-TaC" id="xKq-Z5-LeR"/>
+                        <outlet property="publicMaintenance" destination="zHI-ft-X49" id="A9J-eq-Xzc"/>
+                        <outlet property="resetButton" destination="bjL-vo-BHr" id="Ww1-iN-ogN"/>
+                        <outlet property="runOff" destination="wlZ-WZ-UNo" id="gIS-IK-wGc"/>
+                        <outlet property="saveProfileButton" destination="d5F-ml-V11" id="OBe-nU-2DW"/>
+                        <outlet property="studyID" destination="5au-dg-niR" id="RDj-xV-OBQ"/>
+                        <outlet property="timeFlooded" destination="0PD-b4-irQ" id="09W-U6-Hai"/>
+                        <outlet property="updateButton" destination="Uqo-Wx-KAS" id="xvK-hE-p5H"/>
+                        <outlet property="wasteWaterTreatment" destination="2Yp-Lf-DoW" id="VLr-6p-KUO"/>
+                        <outlet property="waterInSewers" destination="5pa-Ci-R6F" id="7qz-ve-vY9"/>
+                        <outlet property="waterStored" destination="kYm-vN-qkx" id="qCo-4i-PRN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,45 +464,165 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Output Guide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuS-03-yYP">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="494" translatesAutoresizingMaskIntoConstraints="NO" id="HQ2-kg-bsL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="590" id="Bvh-7v-uwP"/>
+                                    <constraint firstAttribute="width" constant="494" id="XY3-rE-qvz"/>
+                                </constraints>
+                                <mutableString key="text">Cost Related Metrics
+
+Public Installation Cost: The amount of money required to install the public GI elements (permable pavers)
+Public Maintenance Cost: The amount of money required to maintain public GI elements
+Public Damages: The amount of money required to process the water that goes through the sewer system
+Private Installation Cost: The amount of money required to install the private GI elements (swales, green roofs, rain barrels)
+Private Maintenance Cost: The amount of money for private citizens to maintain private GI elements
+Private Damages: The number of flooded residential basements
+
+Water Related Metrics
+Run-Off: Volume of water that leaves this area and neighbors have to process
+Water In Sewers: Volume of water that is processed by the sewers
+Deepest Puddle: Greatest depth of water at any point during flooding
+Water Stored in GI: Volume of water stored by the installed GI elements (green roofs, rain barrels)
+Water Infiltrated by GI: Volume of water passed through the ground to groundwater supplies by GI elements (swales, permable pavers)
+
+Time Related Metrics
+Time Flooded: Total amount of time after rain stops that there is water in the system
+Time Until Minor Flood: Amount of time after rain starts until there is pooling water over 1"
+Time Until Major Flood: Amount of time after rain starts until there is pooling water over 6", which is enough to cause damage to vehicles</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tangibles Guide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thG-GN-P2y">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="greenRoof.png" translatesAutoresizingMaskIntoConstraints="NO" id="OBM-x3-5c7">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="akA-55-imx"/>
+                                    <constraint firstAttribute="height" constant="85" id="dhc-HO-eVs"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="permeablePaver.png" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-4U-pjO">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="vIY-jD-Rmx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="rainbarrel.png" translatesAutoresizingMaskIntoConstraints="NO" id="2bN-OV-539">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="Lee-vy-Yqc"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="swale.png" translatesAutoresizingMaskIntoConstraints="NO" id="9pP-FD-dM5">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="2TU-nL-hbS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="Win-uo-XEP">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="233" id="x6d-ih-fad"/>
+                                </constraints>
+                                <string key="text">Green roofs absorb rainwater, providing insulation, creating a habitat for wildlife, and helping to lower urban air temperatures.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Permeable pavers allow rainwater to infiltrate into the groundwater" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="cM6-jG-L1S">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rain barrels collect rainwater and allow residents to reuse the water for watering plants and washing cars." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="cx5-aK-al4">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Swales are ditches planted with native plants to allow rainwater to be infiltrated" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="bno-Ib-iSV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Zd9-0H-cgJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qOY-Xp-jFP" firstAttribute="top" secondItem="16" secondAttribute="top" constant="102" id="3UM-7A-bvc"/>
+                            <constraint firstItem="Win-uo-XEP" firstAttribute="leading" secondItem="OBM-x3-5c7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="1aD-W8-Suq"/>
                             <constraint firstItem="qOY-Xp-jFP" firstAttribute="trailing" secondItem="w7x-Mz-Wbz" secondAttribute="trailing" type="default" id="4fu-yU-9VO"/>
                             <constraint firstItem="qOY-Xp-jFP" firstAttribute="trailing" secondItem="We1-8a-UUT" secondAttribute="trailing" type="default" id="59R-jJ-3he"/>
-                            <constraint firstItem="xKd-X9-jmo" firstAttribute="top" secondItem="16" secondAttribute="top" constant="106" id="5u5-FA-tLC"/>
+                            <constraint firstItem="w7x-Mz-Wbz" firstAttribute="top" secondItem="16" secondAttribute="top" constant="142" id="6Xy-Ya-yFl"/>
+                            <constraint firstItem="cM6-jG-L1S" firstAttribute="leading" secondItem="U1n-4U-pjO" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6ZC-dR-JV1"/>
                             <constraint firstItem="Td1-gb-HvL" firstAttribute="baseline" secondItem="8GU-Ei-L7g" secondAttribute="baseline" type="default" id="7FO-I6-5E6"/>
+                            <constraint firstItem="bno-Ib-iSV" firstAttribute="leading" secondItem="cx5-aK-al4" secondAttribute="leading" type="default" id="7SZ-0H-D3j"/>
+                            <constraint firstItem="thG-GN-P2y" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="82a-ZR-WEK"/>
                             <constraint firstItem="We1-8a-UUT" firstAttribute="leading" secondItem="0ez-9O-Qm4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="9Jd-ly-uAv"/>
-                            <constraint firstItem="We1-8a-UUT" firstAttribute="top" secondItem="16" secondAttribute="top" constant="71" id="9u4-T0-a89"/>
-                            <constraint firstItem="b7E-yw-cCd" firstAttribute="top" secondItem="16" secondAttribute="top" constant="136" id="BBh-9a-0VU"/>
+                            <constraint firstItem="qOY-Xp-jFP" firstAttribute="top" secondItem="16" secondAttribute="top" constant="112" id="BWT-B2-GqM"/>
                             <constraint firstItem="qOY-Xp-jFP" firstAttribute="leading" secondItem="We1-8a-UUT" secondAttribute="leading" type="default" id="BbX-1w-keM"/>
                             <constraint firstItem="v9B-QW-ihp" firstAttribute="leading" secondItem="MIa-tH-Wwx" secondAttribute="leading" type="default" id="Boc-db-Hww"/>
-                            <constraint firstItem="6RK-kM-ZSm" firstAttribute="top" secondItem="16" secondAttribute="top" constant="39" id="Bxw-If-4BG"/>
                             <constraint firstItem="MIa-tH-Wwx" firstAttribute="baseline" secondItem="0ez-9O-Qm4" secondAttribute="baseline" type="default" id="CgU-8I-ub2"/>
                             <constraint firstItem="0ez-9O-Qm4" firstAttribute="leading" secondItem="xKd-X9-jmo" secondAttribute="leading" type="default" id="DaZ-hk-YMZ"/>
-                            <constraint firstItem="nQ2-ZV-bq2" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="G1c-kJ-lv7"/>
+                            <constraint firstItem="xKd-X9-jmo" firstAttribute="top" secondItem="16" secondAttribute="top" constant="116" id="DpC-aD-u0e"/>
+                            <constraint firstItem="cx5-aK-al4" firstAttribute="trailing" secondItem="cM6-jG-L1S" secondAttribute="trailing" type="default" id="ELA-QM-D1l"/>
+                            <constraint firstItem="2bN-OV-539" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ETg-Dh-QqP"/>
+                            <constraint firstItem="U1n-4U-pjO" firstAttribute="top" secondItem="OBM-x3-5c7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FAe-De-0XG"/>
+                            <constraint firstItem="cx5-aK-al4" firstAttribute="leading" secondItem="2bN-OV-539" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G8r-AC-ifD"/>
                             <constraint firstItem="v9B-QW-ihp" firstAttribute="baseline" secondItem="xKd-X9-jmo" secondAttribute="baseline" type="default" id="GMm-lj-Rzf"/>
+                            <constraint firstItem="8GU-Ei-L7g" firstAttribute="top" secondItem="16" secondAttribute="top" constant="53" id="Goz-M3-y4M"/>
+                            <constraint firstItem="HQ2-kg-bsL" firstAttribute="top" secondItem="16" secondAttribute="top" constant="43" id="IaF-LQ-iPm"/>
+                            <constraint firstItem="bno-Ib-iSV" firstAttribute="top" secondItem="9pP-FD-dM5" secondAttribute="top" type="default" id="IpX-bX-hTC"/>
+                            <constraint firstItem="HQ2-kg-bsL" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="502" id="Isk-v4-BY2"/>
                             <constraint firstItem="6RK-kM-ZSm" firstAttribute="trailing" secondItem="We1-8a-UUT" secondAttribute="trailing" type="default" id="JMb-75-TKD"/>
                             <constraint firstItem="b7E-yw-cCd" firstAttribute="baseline" secondItem="w7x-Mz-Wbz" secondAttribute="baseline" type="default" id="LNX-xV-5IM"/>
                             <constraint firstItem="6RK-kM-ZSm" firstAttribute="leading" secondItem="0ez-9O-Qm4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="MeQ-VX-Xa6"/>
-                            <constraint firstItem="0ez-9O-Qm4" firstAttribute="centerY" secondItem="We1-8a-UUT" secondAttribute="centerY" type="default" id="ODC-Zc-EC5"/>
-                            <constraint firstItem="nQ2-ZV-bq2" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="8" id="QWK-73-MYU"/>
+                            <constraint firstItem="bno-Ib-iSV" firstAttribute="top" secondItem="cx5-aK-al4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Qqe-5g-lH8"/>
                             <constraint firstItem="BHe-28-F3O" firstAttribute="baseline" secondItem="b7E-yw-cCd" secondAttribute="baseline" type="default" id="T7G-zQ-HJ6"/>
                             <constraint firstItem="qOY-Xp-jFP" firstAttribute="leading" secondItem="xKd-X9-jmo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="TIX-PP-fI4"/>
                             <constraint firstItem="BHe-28-F3O" firstAttribute="leading" secondItem="v9B-QW-ihp" secondAttribute="leading" type="default" id="TeG-sA-T8l"/>
-                            <constraint firstItem="8GU-Ei-L7g" firstAttribute="top" secondItem="16" secondAttribute="top" constant="43" id="YAG-lR-Qvn"/>
+                            <constraint firstItem="OBM-x3-5c7" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="UPH-0l-5gn"/>
+                            <constraint firstItem="9pP-FD-dM5" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Uqr-Ag-H2i"/>
+                            <constraint firstItem="9pP-FD-dM5" firstAttribute="top" secondItem="2bN-OV-539" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VcX-jP-dgu"/>
+                            <constraint firstItem="OBM-x3-5c7" firstAttribute="top" secondItem="16" secondAttribute="top" constant="246" id="VwC-Wf-v05"/>
+                            <constraint firstItem="nQ2-ZV-bq2" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WCA-Fr-eP3"/>
+                            <constraint firstItem="RuS-03-yYP" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="490" id="WxC-ES-oin"/>
+                            <constraint firstItem="We1-8a-UUT" firstAttribute="centerY" secondItem="MIa-tH-Wwx" secondAttribute="centerY" type="default" id="YXl-Bl-Y36"/>
+                            <constraint firstItem="bno-Ib-iSV" firstAttribute="trailing" secondItem="cx5-aK-al4" secondAttribute="trailing" type="default" id="Z7d-pu-kEE"/>
+                            <constraint firstItem="2bN-OV-539" firstAttribute="top" secondItem="U1n-4U-pjO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aV5-Xk-qa7"/>
+                            <constraint firstItem="Win-uo-XEP" firstAttribute="leading" secondItem="U1n-4U-pjO" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aWN-mw-Su1"/>
+                            <constraint firstItem="U1n-4U-pjO" firstAttribute="bottom" secondItem="cM6-jG-L1S" secondAttribute="bottom" type="default" id="ayq-z0-The"/>
                             <constraint firstItem="w7x-Mz-Wbz" firstAttribute="leading" secondItem="qOY-Xp-jFP" secondAttribute="leading" type="default" id="bjK-Cl-l1u"/>
-                            <constraint firstItem="b7E-yw-cCd" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="12" id="bxc-Ot-T12"/>
+                            <constraint firstItem="Win-uo-XEP" firstAttribute="trailing" secondItem="w7x-Mz-Wbz" secondAttribute="trailing" type="default" id="bz5-hd-4pr"/>
                             <constraint firstItem="w7x-Mz-Wbz" firstAttribute="leading" secondItem="b7E-yw-cCd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="d2T-xC-aEo"/>
-                            <constraint firstItem="Td1-gb-HvL" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="336" id="dgk-DX-QDj"/>
                             <constraint firstItem="6RK-kM-ZSm" firstAttribute="leading" secondItem="8GU-Ei-L7g" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dvN-Ne-9mq"/>
                             <constraint firstItem="MIa-tH-Wwx" firstAttribute="leading" secondItem="Td1-gb-HvL" secondAttribute="leading" type="default" id="gTF-PU-yby"/>
-                            <constraint firstItem="w7x-Mz-Wbz" firstAttribute="top" secondItem="16" secondAttribute="top" constant="132" id="icQ-vp-Xm4"/>
+                            <constraint firstItem="RuS-03-yYP" firstAttribute="top" secondItem="16" secondAttribute="top" constant="20" symbolic="YES" type="default" id="htr-XZ-Ofm"/>
+                            <constraint firstItem="cM6-jG-L1S" firstAttribute="top" secondItem="U1n-4U-pjO" secondAttribute="top" type="default" id="jR6-We-hSO"/>
+                            <constraint firstItem="6RK-kM-ZSm" firstAttribute="top" secondItem="16" secondAttribute="top" constant="49" id="joK-yV-NcJ"/>
+                            <constraint firstItem="cx5-aK-al4" firstAttribute="leading" secondItem="cM6-jG-L1S" secondAttribute="leading" type="default" id="lez-9f-uL9"/>
+                            <constraint firstItem="nQ2-ZV-bq2" firstAttribute="top" secondItem="16" secondAttribute="top" constant="20" symbolic="YES" type="default" id="nCW-tA-enL"/>
                             <constraint firstItem="xKd-X9-jmo" firstAttribute="baseline" secondItem="qOY-Xp-jFP" secondAttribute="baseline" type="default" id="nOe-J7-YQH"/>
+                            <constraint firstItem="b7E-yw-cCd" firstAttribute="top" secondItem="16" secondAttribute="top" constant="146" id="pFh-Tk-Z5f"/>
+                            <constraint firstItem="U1n-4U-pjO" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pd8-1i-Ds2"/>
+                            <constraint firstItem="bno-Ib-iSV" firstAttribute="leading" secondItem="9pP-FD-dM5" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="sEp-5v-7xn"/>
+                            <constraint firstItem="cM6-jG-L1S" firstAttribute="trailing" secondItem="Win-uo-XEP" secondAttribute="trailing" type="default" id="ube-4D-Vt6"/>
+                            <constraint firstItem="Td1-gb-HvL" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="358" id="vel-x9-Zmd"/>
+                            <constraint firstItem="thG-GN-P2y" firstAttribute="top" secondItem="16" secondAttribute="top" constant="210" id="yD4-ez-IBt"/>
+                            <constraint firstItem="We1-8a-UUT" firstAttribute="top" secondItem="16" secondAttribute="top" constant="81" id="yiL-0m-CCP"/>
+                            <constraint firstItem="Win-uo-XEP" firstAttribute="top" secondItem="OBM-x3-5c7" secondAttribute="top" type="default" id="z68-qY-6Nc"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Guidebook" image="second" id="6"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="barrelCost" destination="BHe-28-F3O" id="Vke-t1-EoP"/>
@@ -509,12 +662,22 @@
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
+        <image name="greenRoof.png" width="82" height="82"/>
+        <image name="permeablePaver.png" width="82" height="82"/>
+        <image name="rainbarrel.png" width="82" height="82"/>
         <image name="second" width="16" height="16"/>
+        <image name="swale.png" width="87" height="82"/>
     </resources>
     <classes>
         <class className="EcoValFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EcoValFirstViewController.h"/>
             <relationships>
+                <relationship kind="action" name="SliceNumChanged:"/>
+                <relationship kind="action" name="loadScoreData:"/>
+                <relationship kind="action" name="resetPressed:"/>
+                <relationship kind="action" name="saveConcernProfile:"/>
+                <relationship kind="action" name="showSlicePercentage:"/>
+                <relationship kind="action" name="updatePressed:"/>
                 <relationship kind="outlet" name="amountInfiltrated" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="areaFlooded" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="basementFlooding" candidateClass="UITextField"/>

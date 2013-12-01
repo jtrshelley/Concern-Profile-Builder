@@ -46,10 +46,10 @@
 }
 
 - (void) keyboardWasHidden: (NSNotification*) notif{
-    _swaleCost.text = [NSString stringWithFormat: @"= $ %d", 21000* [_swaleNumber.text integerValue]];
-    _paverCost.text = [NSString stringWithFormat: @"= $ %d", 5500* [_paverNumber.text integerValue]];
-    _roofCost.text = [NSString stringWithFormat: @"= $ %d", 125000* [_roofNumber.text integerValue]];
-    _barrelCost.text = [NSString stringWithFormat: @"= $ %d", 125* [_barrelNumber.text integerValue]];
+    _swaleCost.text = [NSString stringWithFormat: @"= $%d", 21000* [_swaleNumber.text integerValue]];
+    _paverCost.text = [NSString stringWithFormat: @"= $%d", 5500* [_paverNumber.text integerValue]];
+    _roofCost.text = [NSString stringWithFormat: @"= $%d", 125000* [_roofNumber.text integerValue]];
+    _barrelCost.text = [NSString stringWithFormat: @"= $%d", 125* [_barrelNumber.text integerValue]];
 }
 
 @end

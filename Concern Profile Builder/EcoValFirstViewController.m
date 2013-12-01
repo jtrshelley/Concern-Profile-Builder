@@ -20,7 +20,6 @@
 @synthesize concernProfiles = _concernProfiles;
 @synthesize outcome = _outcome;
 
-NSArray * normalizedVariableNames;
 NSMutableArray * graphicRepresentations;
 
 - (void)didReceiveMemoryWarning
@@ -39,10 +38,9 @@ NSMutableArray * graphicRepresentations;
     //    [test setCenter:CGPointMake(self.pieChartLeft.pieCenter.x + 10, self.pieChartLeft.pieCenter.y+self.pieChartLeft.pieRadius +5)];
     //    [self.pieChartLeft addSubview:test];
     self.concernProfiles = [[NSMutableArray alloc] init];
-    self.numOfSlices = 14;
+    self.numOfSlices = 17;
     self.slices = [NSMutableArray arrayWithCapacity:18];
-    self.textFields = [NSArray arrayWithObjects:_publicInstall, _privateInstall, _publicMaintenance, _privateMaintenance, _wasteWaterTreatment, _basementFlooding, _runOff, _waterInSewers, _deepestPuddle, _waterStored, _amountInfiltrated, _timeFlooded, _minorFloodTime, _majorFloodTime, nil];
-    normalizedVariableNames = [NSArray arrayWithObjects: @"publicInstallN",@"privateInstallN", @"publicMaintainN",@"privateMaintainN", @"publicDamageN", @"privateDamageN",@"runOffN", @"waterInSewersN", @"waterInRoofsN", @"waterInAllGIN", @"waterInSwalesN",@"timeToDryN" , @"timeOfFloodN",  @"timeOfLargeFloodN",  nil];
+    self.textFields = [NSArray arrayWithObjects:_publicInstall, _privateInstall, _publicMaintenance, _privateMaintenance, _wasteWaterTreatment, _basementFlooding, _runOff, _waterInSewers, _waterInAllGI, _waterInRoofs, _waterInBarrels, _waterInSwales, _timeFlooded, _minorFloodTime, _majorFloodTime, _minorFloodingTime, _majorFloodingTime, nil];
     for(int i = 0; i < _numOfSlices; i ++)
     {
         NSNumber *one = [NSNumber numberWithInt: 1 ];
@@ -67,15 +65,19 @@ NSMutableArray * graphicRepresentations;
                        [UIColor colorWithRed:75/255.0 green:125/255.0 blue:25/255.0 alpha:1],
                        [UIColor colorWithRed:100/255.0 green:150/255.0 blue:25/255.0 alpha:1],
                        [UIColor colorWithRed:50/255.0 green:150/255.0 blue:25/255.0 alpha:1],
-                       /*last green value*/   [UIColor colorWithRed:25/255.0 green:200/255.0 blue:50/255.0 alpha:1],
+                       /*last green value*/
+                       [UIColor colorWithRed:25/255.0 green:200/255.0 blue:50/255.0 alpha:1],
                        [UIColor colorWithRed:25/255.0 green:50/255.0 blue:100/255.0 alpha:1],
                        [UIColor colorWithRed:25/255.0 green:50/255.0 blue:150/255.0 alpha:1],
                        [UIColor colorWithRed:30/255.0 green:125/255.0 blue:200/255.0 alpha:1],
                        [UIColor colorWithRed:100/255.0 green:175/255.0 blue:255/255.0 alpha:1],
                        [UIColor colorWithRed:139/255.0 green:139/255.0 blue:255/255.0 alpha:1],
+                       [UIColor colorWithRed:57/255.0 green:93/255.0 blue:212/255.0 alpha:1],
                        [UIColor colorWithRed:255/255.0 green:90/255.0 blue:0/255.0 alpha:1],
                        [UIColor colorWithRed:200/255.0 green:125/255.0 blue:0/255.0 alpha:1],
                        [UIColor colorWithRed:255/255.0 green:150/255.0 blue:0/255.0 alpha:1],
+                       [UIColor colorWithRed:249/255.0 green:196/255.0 blue:45/255.0 alpha:1],
+                       [UIColor colorWithRed:218/255.0 green:135/255.0 blue:60/255.0 alpha:1],
                        nil];
     
 }
@@ -236,24 +238,24 @@ NSMutableArray * graphicRepresentations;
             float prevY = 545;
             UILabel *possibleScores = [[UILabel alloc] initWithFrame:CGRectMake(160 +j*200, prevY-125, 50, 125)];
             possibleScores.backgroundColor = [UIColor grayColor];
-            NSMutableDictionary *outComeSet= [[_outcome simOutcome] objectAtIndex:j];
+            NSArray *outComeSet= [[_outcome simOutcome] objectAtIndex:j];
             [self.view addSubview:possibleScores];
             [graphicRepresentations addObject:possibleScores];
             if ( j * 200 > 1000) break;
             for(int i = 0; i < _numOfSlices; i++){
-                if([self.slices objectAtIndex: i] > 0){
-                    float score = [[outComeSet objectForKey: [normalizedVariableNames objectAtIndex: i]] floatValue];
-                    
-                    float height = score*125*[[self.slices objectAtIndex:i] floatValue] / totalSliceValues;
-                    UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(160 + j*200, prevY-height, 50, height) ];
+                float score = [[outComeSet objectAtIndex:(i + 19) ] floatValue];
+                float height = score*125*[[self.slices objectAtIndex:i] floatValue] / totalSliceValues;
+                if(height > 0){
+                    UIView *newLabel = [[UIView alloc] initWithFrame:CGRectMake(160 + j*200, prevY-height, 50, height) ];
                     newLabel.backgroundColor = [_sliceColors objectAtIndex:i];
                     [self.view addSubview:newLabel];
                     [graphicRepresentations addObject:newLabel];
                     prevY -= height;
-                    NSLog(@"%@", newLabel);
+                    //NSLog(@"%@", newLabel);
                 }
             }
         }
+        [self.view setNeedsDisplay];
     }
     
 }

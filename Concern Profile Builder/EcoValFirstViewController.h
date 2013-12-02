@@ -28,6 +28,8 @@
 @property(strong, nonatomic) IBOutlet UITextField * waterInRoofs;
 @property(strong, nonatomic) IBOutlet UITextField * waterInBarrels;
 @property(strong, nonatomic) IBOutlet UITextField * waterInSwales;
+@property(strong, nonatomic) IBOutlet UITextField * mostStandingWater;
+@property(strong, nonatomic) IBOutlet UITextField * deepestPuddle;
 
 @property(strong, nonatomic) IBOutlet UITextField * timeFlooded;
 @property(strong, nonatomic) IBOutlet UITextField * minorFloodTime;
@@ -48,7 +50,6 @@
 @property (strong, nonatomic) IBOutlet UITextField * areaFlooded;
 @property (strong, nonatomic) IBOutlet UIView *concernProfileView;
 @property (strong, nonatomic) IBOutlet UITextField * waterInfiltrated;
-@property (strong, nonatomic) IBOutlet UITextField * deepestPuddle;
 @property(strong, nonatomic) IBOutlet UITextField * waterStored;
 @property(strong, nonatomic) IBOutlet UITextField * amountInfiltrated;
 @property (strong, nonatomic) NSMutableArray * concernProfiles;

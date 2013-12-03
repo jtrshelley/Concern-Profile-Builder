@@ -38,9 +38,9 @@ NSMutableArray * graphicRepresentations;
     //    [test setCenter:CGPointMake(self.pieChartLeft.pieCenter.x + 10, self.pieChartLeft.pieCenter.y+self.pieChartLeft.pieRadius +5)];
     //    [self.pieChartLeft addSubview:test];
     self.concernProfiles = [[NSMutableArray alloc] init];
-    self.numOfSlices = 18;
+    self.numOfSlices = 19;
     self.slices = [NSMutableArray arrayWithCapacity:18];
-    self.textFields = [NSArray arrayWithObjects:_publicInstall, _privateInstall, _publicMaintenance, _privateMaintenance, _wasteWaterTreatment, _basementFlooding, _runOff, _waterInSewers, _waterInAllGI, _waterInRoofs, _waterInBarrels, _waterInSwales, _mostStandingWater, _deepestPuddle, _minorFloodTime, _majorFloodTime, _minorFloodingTime, _majorFloodingTime, nil];
+    self.textFields = [NSArray arrayWithObjects:_publicInstall, _privateInstall, _publicMaintenance, _privateMaintenance, _wasteWaterTreatment, _basementFlooding, _runOff, _waterInSewers, _waterInAllGI, _waterInRoofs, _waterInBarrels, _waterInSwales, _waterInAlleys, _mostStandingWater, _deepestPuddle, _minorFloodTime, _majorFloodTime, _minorFloodingTime, _majorFloodingTime, nil];
     for(int i = 0; i < _numOfSlices; i ++)
     {
         NSNumber *one = [NSNumber numberWithInt: 1 ];
@@ -73,6 +73,7 @@ NSMutableArray * graphicRepresentations;
                        [UIColor colorWithRed:100/255.0 green:175/255.0 blue:255/255.0 alpha:1],
                        [UIColor colorWithRed:139/255.0 green:139/255.0 blue:255/255.0 alpha:1],
                        [UIColor colorWithRed:57/255.0 green:93/255.0 blue:212/255.0 alpha:1],
+                       [UIColor colorWithRed:57/255.0 green:191/255.0 blue:212/255.0 alpha:1],
                        [UIColor colorWithRed:150/255.0 green:180/255.0 blue:250/255.0 alpha:1],
                        [UIColor colorWithRed:161/255.0 green:164/255.0 blue:255/255.0 alpha:1],
                        /*^last blue value ^*/
@@ -215,8 +216,8 @@ NSMutableArray * graphicRepresentations;
     UIGraphicsEndImageContext();
     UIImageView *imageView = [[UIImageView alloc] initWithImage: resultingImage];
     [imageView setFrame:CGRectMake(self.concernProfiles.count * 200, 15, 200, 175)];
-    NSLog(@"count: %d imageView position: %@", self.concernProfiles.count, NSStringFromCGRect(imageView.frame));
     [self.concernProfiles addObject: resultingImage];
+    NSLog(@"%@", resultingImage);
     [self.concernProfileView addSubview:imageView];
 }
 
